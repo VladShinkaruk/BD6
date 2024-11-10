@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Orders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Заказы билетов</h1>
+
+        <form id="searchForm" class="mb-4">
+            <div class="form-group">
+                <label for="searchEventName">Поиск по названию мероприятия</label>
+                <input type="text" id="searchEventName" class="form-control" placeholder="Введите названия мероприятия">
+            </div>
+            <button type="submit" class="btn btn-primary">Искать</button>
+            <button type="button" class="btn btn-secondary" onclick="fetchTicketOrders()">Очистить</button>
+        </form>
+
+        <form id="ticketOrderForm" class="mb-4">
+            <input type="hidden" id="orderId" value="0">
+            <div class="form-group">
+                <label for="customerId">Заказчик</label>
+                <select id="customerId" class="form-control" required></select>
+            </div>
+            <div class="form-group">
+                <label for="eventId">Мероприятие</label>
+                <select id="eventId" class="form-control" required></select>
+            </div>
+
+            <div class="form-group">
+                <label for="orderDate">Дата заказа</label>
+                <input type="date" id="orderDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="ticketCount">Количество билетов</label>
+                <input type="number" id="ticketCount" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <button type="button" class="btn btn-secondary" onclick="resetForm()">Очистить</button>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Event Name</th>
+                    <th>Order Date</th>
+                    <th>Ticket Count</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="ticketOrdersTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
